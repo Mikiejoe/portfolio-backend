@@ -62,7 +62,7 @@ MIDDLEWARE = [
 
 ROOT_URLCONF = 'cms.urls'
 
-CORS_ALLOWED_ORIGINS = ['http://localhost:5173']
+CORS_ALLOWED_ORIGINS = ['http://localhost:5173','https://mikiejoe.tech/',"https://www.mikiejoe.tech/"]
 # CORS_ALLLOW_ALL_ORIGINS = True
 
 TEMPLATES = [
