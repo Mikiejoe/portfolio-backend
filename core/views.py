@@ -10,6 +10,8 @@ from rest_framework import status
 # Create your views here.
 from .models import Project, Photo
 from .serializers import ProjectSerializer, PhotoSerializer,EmailsSerializer
+from django.template.loader import render_to_string
+from django.core.mail import EmailMultiAlternatives
 
 class ProjectListCreateAPIView(ListCreateAPIView):
     queryset = Project.objects.all()
@@ -54,3 +56,43 @@ def send_email(request):
             print(e)
             return Response(status=status.HTTP_500_INTERNAL_SERVER_ERROR,data={"message":"An error occurred"})
     return Response(status=status.HTTP_400_BAD_REQUEST)
+
+@api_view(["POST"])
+def send_email_with_template(request):
+    # if request.method == 'POST':
+    if request.method == 'POST':
+        try:
+            # Extract data from the request
+            subject = request.data['subject']
+            name = request.data['name']
+            recepient_list = request.data['email']
+            # subject = "Joseph Omondi Received a message from you."
+            # name = "Joseph Omondi"
+            # recepient_list = "omoshjoe02@gmail.com"
+            
+            # Render the HTML template with the data
+            context = {
+                'name': name,
+            }
+            html_content = render_to_string('email_template.html', context)
+            
+            # Create the email message
+            email = EmailMultiAlternatives(subject, '', settings.EMAIL_HOST_USER, [recepient_list])
+            email.attach_alternative(html_content, "text/html")
+            
+            # Send the email
+            email.send()
+            
+            # Save the email data
+            serializer = EmailsSerializer(data=request.data)
+            if serializer.is_valid():
+                serializer.save()
+            #     return render(request, 'index.html')  # Render a success template
+            # return render(request, 'index.html')
+                return Response(status=status.HTTP_200_OK, data={"message": "Message sent successfully!"})
+            return Response(status=status.HTTP_400_BAD_REQUEST)
+        except Exception as e:
+            print(e)
+            return Response(status=status.HTTP_500_INTERNAL_SERVER_ERROR, data={"message": "An error occurred"})
+    return Response(status=status.HTTP_400_BAD_REQUEST)
+# def send_email(request):
