@@ -34,7 +34,6 @@ def send_email(request):
             message = request.data['message']
             name = request.data['name']
             recepient_list = request.data['email']
-            message = f"Dear {name},\nThank you for reaching out to me through my portfolio, I will get back to you as soon as possible."
             print(message)
             send_mail(subject=subject, message=message,from_email=settings.EMAIL_HOST_USER, recipient_list=[settings.EMAIL_HOST_USER])
         
