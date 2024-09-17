@@ -20,5 +20,15 @@ class Photo(models.Model):
     def __str__(self):
         return self.project.title
     
+    
+class Emails(models.Model):
+    subject = models.CharField(max_length=100)
+    name = models.CharField(max_length=100)
+    message = models.TextField()
+    email = models.EmailField()
+
+    def __str__(self):
+            return self.subject
+    
 
     

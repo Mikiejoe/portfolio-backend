@@ -1,5 +1,5 @@
 from rest_framework.serializers import ModelSerializer
-from core.models import Project,Photo
+from core.models import Project,Photo,Emails
 
 class ProjectSerializer(ModelSerializer):
     class Meta:
@@ -9,4 +9,11 @@ class ProjectSerializer(ModelSerializer):
 class PhotoSerializer(ModelSerializer):
     class Meta:
         model = Photo
+        fields = '__all__'
+            
+            
+
+class EmailsSerializer(ModelSerializer):
+    class Meta:
+        model = Emails
         fields = '__all__'

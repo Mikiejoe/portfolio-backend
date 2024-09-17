@@ -1,7 +1,7 @@
 from django.contrib import admin
 
 # Register your models here.
-from .models import Project, Photo
+from .models import Project, Photo,Emails
 
 class ProjectAdmin(admin.ModelAdmin):
     list_display = ('title', 'description', 'image', 'url')
@@ -17,5 +17,8 @@ class PhotoAdmin(admin.ModelAdmin):
 
 admin.site.register(Project, ProjectAdmin)
 admin.site.register(Photo, PhotoAdmin)
+admin.site.register(Emails)
+
+
 
 # admin.si
