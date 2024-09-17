@@ -49,7 +49,7 @@ def send_email(request):
             serializer = EmailsSerializer(data=request.data)
             if serializer.is_valid():
                 serializer.save()
-                return Response(status=status.HTTP_200_OK)
+                return Response(status=status.HTTP_200_OK,data={"message":"Message sent successfully!!"})
             return Response(status=status.HTTP_400_BAD_REQUEST)
         except Exception as e:
             print(e)
