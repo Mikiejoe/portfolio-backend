@@ -9,4 +9,4 @@ RUN pip install -r requirements.txt
 # RUN mkdir static
 # RUN python manage.py collectstatic --no-input
 EXPOSE 5000
-CMD ["gunicorn","--bind", ":5000", "core.wsgi:application"]
+CMD ["gunicorn","--bind", ":5000", "cms.wsgi:application"]
