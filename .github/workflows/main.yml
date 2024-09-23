@@ -28,6 +28,18 @@ jobs:
         run: |
           echo "Tags: ${{ steps.meta.outputs.tags }}"
           echo "Labels: ${{ steps.meta.outputs.labels }}"
+      - name: Debug secrets
+        run: |
+          echo "CLOUD_NAME: ${{ secrets.CLOUD_NAME }}"
+          echo "API_KEY: ${{ secrets.API_KEY }}"
+          echo "DB_NAME: ${{ secrets.DB_NAME }}"
+          echo "SECRET_KEY: (hidden)"
+          echo "DB_USER: ${{ secrets.DB_USER }}"
+          echo "DB_HOST: ${{ secrets.DB_HOST }}"
+          echo "DB_PORT: ${{ secrets.DB_PORT }}"
+          echo "EMAIL_HOST_USER: ${{ secrets.EMAIL_HOST_USER }}"
+          echo "EMAIL_PORT: ${{ secrets.EMAIL_PORT }}"
+          echo "EMAIL_HOST: ${{ secrets.EMAIL_HOST }}"
 
       - name: Build and push Docker image
         uses: docker/build-push-action@v5
