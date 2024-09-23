@@ -32,6 +32,9 @@ ENV CLOUD_NAME=$CLOUD_NAME \
     EMAIL_HOST=$EMAIL_HOST\
     DB_USER=$DB_USER
 
+RUN echo $CLOUD_NAME $API_KEY $DB_NAME $SECRET_KEY $DB_USER
+RUN env
+
 
 RUN pip install --upgrade pip
 RUN pip install -r requirements.txt
