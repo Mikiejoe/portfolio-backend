@@ -31,7 +31,7 @@ jobs:
           push: true
           tags: ${{ steps.meta.outputs.tags }}
           labels: ${{ steps.meta.outputs.labels }}
-          buid-args:
+          build-args:
             CLOUD_NAME: ${{ secrets.CLOUD_NAME }}
             API_KEY: ${{ secrets.API_KEY }}
             API_SECRET: ${{ secrets.API_SECRET }}
