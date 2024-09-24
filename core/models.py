@@ -20,7 +20,7 @@ class Project(models.Model):
        
 class Photo(models.Model):
     project = models.ForeignKey(Project, related_name='images', on_delete=models.CASCADE)
-    image = models.ImageField(upload_to=f'portfolio/project-images/{project.title}')
+    image = models.ImageField(upload_to='portfolio/project-images/')
     uploaded_at = models.DateTimeField(auto_now_add=True,null=True)
 
     def __str__(self):
