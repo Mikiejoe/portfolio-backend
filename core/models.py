@@ -5,20 +5,40 @@ from cloudinary.models import CloudinaryField
 
 class Project(models.Model):
     title = models.CharField(max_length=100)
-    description = models.TextField()
-    image = models.ImageField(upload_to=f'portfolio/')
-    url = models.URLField(blank=True)
+    technology = models.CharField(max_length=255,null=True)
+    overview = models.TextField(null=True)
+    key_features = models.TextField(null=True)  # You can store this as a JSON string
+    development = models.TextField(null=True)
+    conclusion = models.TextField(null=True)
+    created_at = models.DateTimeField(auto_now_add=True,null=True)
+    updated_at = models.DateTimeField(auto_now=True,null=True)
+    github_url = models.URLField(null=True)
+    live_url = models.URLField(null=True)
 
     def __str__(self):
-        return self.title
+        return self.project_name
+    # title = models.CharField(max_length=100)
+    # description = models.TextField()
+    # image = models.ImageField(upload_to=f'portfolio/')
+    # url = models.URLField(blank=True)
+
+    # def __str__(self):
+    #     return self.title
+    
     
     
 class Photo(models.Model):
-    project = models.ForeignKey(Project, on_delete=models.CASCADE)
-    image = models.ImageField(upload_to=f'portfolio/images/')
+    # project = models.ForeignKey(Project, on_delete=models.CASCADE)
+    # image = models.ImageField(upload_to=f'portfolio/images/')
+
+    # def __str__(self):
+    #     return self.project.title
+    project = models.ForeignKey(Project, related_name='images', on_delete=models.CASCADE)
+    image = models.ImageField(upload_to='project_images/')
+    uploaded_at = models.DateTimeField(auto_now_add=True,null=True)
 
     def __str__(self):
-        return self.project.title
+        return f"Image for {self.project.project_name}"
     
     
 class Emails(models.Model):

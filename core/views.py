@@ -4,14 +4,16 @@ from django.core.mail import send_mail
 from rest_framework.decorators import api_view
 from rest_framework.generics import ListCreateAPIView, RetrieveUpdateDestroyAPIView
 from rest_framework.response import Response
-from rest_framework import status
-
-
-# Create your views here.
+from rest_framework import status,viewsets
 from .models import Project, Photo
 from .serializers import ProjectSerializer, PhotoSerializer,EmailsSerializer
 from django.template.loader import render_to_string
 from django.core.mail import EmailMultiAlternatives
+
+
+class ProjectViewSet(viewsets.ModelViewSet):
+    queryset = Project.objects.all()
+    serializer_class = ProjectSerializer
 
 class ProjectListCreateAPIView(ListCreateAPIView):
     queryset = Project.objects.all()

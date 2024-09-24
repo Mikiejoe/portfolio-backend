@@ -1,12 +1,17 @@
 from django.contrib import admin
 
 # Register your models here.
-from .models import Project, Photo,Emails
+from .models import Project, Photo,Emails,Photo
+
+class ProjectImageInline(admin.TabularInline):
+    model = Photo
+    extra = 1 
 
 class ProjectAdmin(admin.ModelAdmin):
-    list_display = ('title', 'description', 'image', 'url')
-    search_fields = ('title', 'description')
-    list_filter = ('title', 'description')
+    list_display = ('title', 'github_url', 'created_at')
+    search_fields = ('title', 'technology')
+    list_filter = ('title', 'technology')
+    inlines = [ProjectImageInline]
     
     
 class PhotoAdmin(admin.ModelAdmin):
