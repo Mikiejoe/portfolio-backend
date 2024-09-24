@@ -12,7 +12,7 @@ class ProjectSerializer(ModelSerializer):
     images = PhotoSerializer(many=True, read_only=True)
     class Meta:
         model = Project
-        fields = ['title', 'technology', 'overview', 'key_features', 'development', 'conclusion', 'images']
+        fields = ['id','title', 'technology', 'overview', 'key_features', 'development', 'conclusion', 'images']
                  
 
 class EmailsSerializer(ModelSerializer):
