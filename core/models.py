@@ -24,7 +24,7 @@ class Photo(models.Model):
     uploaded_at = models.DateTimeField(auto_now_add=True,null=True)
 
     def __str__(self):
-        return f"Image for {self.project.name}"
+        return f"Image for {self.project.title}"
     
     
 class Emails(models.Model):
