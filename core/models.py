@@ -16,7 +16,7 @@ class Project(models.Model):
     live_url = models.URLField(null=True)
 
     def __str__(self):
-        return self.project_name
+        return self.title
     # title = models.CharField(max_length=100)
     # description = models.TextField()
     # image = models.ImageField(upload_to=f'portfolio/')
