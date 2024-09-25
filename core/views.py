@@ -16,7 +16,7 @@ class ProjectViewSet(viewsets.ModelViewSet):
 
     def retrieve(self, request,pk=None, *args, **kwargs):
         queryset = self.filter_queryset(self.get_queryset())
-        obj = get_object_or_404(queryset, title=pk)
+        obj = get_object_or_404(queryset, slug=pk)
         self.check_object_permissions(self.request, obj)
         return Response(ProjectSerializer(obj).data)
 
