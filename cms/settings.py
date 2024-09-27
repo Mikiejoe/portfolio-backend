@@ -34,7 +34,6 @@ INSTALLED_APPS = [
     "cloudinary_storage",
     "rest_framework",
     "core",
-        
 ]
 
 CLOUDINARY_STORAGE = {
