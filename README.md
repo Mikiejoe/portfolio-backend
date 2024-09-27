@@ -44,13 +44,13 @@ To get a local copy up and running, follow these simple steps:
    Create a .env file in the root directory and add your configuration values:
    
      ```
-     CLOUD_NAME=your_cloudinary_cloud_name_here
-     API_KEY=your_cloudinary_api_key_here
-     API_SECRET=your_cloudinary_api_secret_here
-     DB_NAME=your_database_name_here
-     DB_PASSWORD=your_database_password_here
-     DB_HOST=your_database_host_here
-     DB_PORT=5432
+     CLOUD_NAME = your_cloudinary_cloud_name_here
+     API_KEY = your_cloudinary_api_key_here
+     API_SECRET = your_cloudinary_api_secret_here
+     DB_NAME = your_database_name_here
+     DB_PASSWORD = your_database_password_here
+     DB_HOST = your_database_host_here
+     DB_PORT = 5432
      ```
 
 5. **Run the database migrations:**
