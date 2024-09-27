@@ -3,6 +3,10 @@ from django.contrib import admin
 # Register your models here.
 from .models import Project, Photo, Emails
 
+admin.site.site_header = "Portfolio Admin"
+admin.site.site_title = "Portfolio Admin Area"
+admin.site.index_title = "Welcome to the Portfolio Admin"
+
 
 class ProjectImageInline(admin.TabularInline):
     model = Photo
