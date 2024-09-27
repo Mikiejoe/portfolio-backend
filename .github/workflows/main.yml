@@ -1,13 +1,16 @@
 name: Publish Docker Image
 
 on: 
-  push:
-    branches: ["main"]
+  workflow_run:
+    workflows: ["Tests"]  # Name of the first workflow
+    types:
+      - completed
 
 jobs:
   push_to_registry:
     name: Push Docker Image to Docker Hub
     runs-on: ubuntu-latest
+    if: ${{ github.event.workflow_run.conclusion == 'success' }}
     steps:
       - name: Check out the repo
         uses: actions/checkout@v3
