@@ -26,28 +26,32 @@ Welcome to the backend repository for my portfolio! This project serves as the b
 To get a local copy up and running, follow these simple steps:
 
 1. **Clone the repository:**
-   ```bash
+   ```
    git clone https://github.com/Mikiejoe/portfolio-backend.git
    cd portfolio-backend
+   ```
 2. **Create and activate a virtual environment**
-   ```bash
+   ```
    python -m venv env
    source env/bin/activate   # On Windows, use `env\Scripts\activate`
-
+   ```
 3. **Install the dependencies:**
-   ```bash
+   ```
    pip install -r requirements.txt
+   ```
 4. **Set up the environment variables:**
-<br>
-Create a .env file in the root directory and add your configuration values.
-   ```bash
-    CLOUD_NAME =
-    API_KEY = 
-    API_SECRET = 
-    DB_NAME =
-    DB_PASSWORD =
-    DB_HOST =
-    DB_PORT = 5432
+
+   Create a .env file in the root directory and add your configuration values:
+   
+     ```
+     CLOUD_NAME=your_cloudinary_cloud_name_here
+     API_KEY=your_cloudinary_api_key_here
+     API_SECRET=your_cloudinary_api_secret_here
+     DB_NAME=your_database_name_here
+     DB_PASSWORD=your_database_password_here
+     DB_HOST=your_database_host_here
+     DB_PORT=5432
+     ```
 
 5. **Run the database migrations:**
    ```bash
