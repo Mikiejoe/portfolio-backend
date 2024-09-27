@@ -1,6 +1,6 @@
 # Backend Repository for My Portfolio
 
-Welcome to the backend repository for my portfolio! This project serves as the backbone of my personal website, showcasing my journey and skills as an aspiring Backend Developer. Developed with Django, it integrates various services and databases to provide a seamless and dynamic experience.
+Welcome to the backend repository for my portfolio! This project serves as the backbone of  [my personal website](https://mikiejoe.tech), showcasing my journey and skills as an aspiring Backend Developer. Developed with Django, it integrates various services and databases to provide a seamless and dynamic experience.
 
 ## Features
 
