@@ -1,5 +1,7 @@
 from pathlib import Path
-
+import cloudinary_storage
+import cloudinary.uploader
+import cloudinary.api
 import os
 from decouple import config
 import sys
