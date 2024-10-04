@@ -5,7 +5,10 @@ from core.models import Project, Photo, Emails
 class PhotoSerializer(ModelSerializer):
     class Meta:
         model = Photo
-        fields = ["image", "uploaded_at"]
+        fields = ["image", "uploaded_at", "image_url"]
+        
+    def get_image_url(self, obj):
+        return obj.image.url
 
 
 class ProjectSerializer(ModelSerializer):
