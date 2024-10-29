@@ -21,7 +21,7 @@ class ProjectAdmin(admin.ModelAdmin):
 
 
 class PhotoAdmin(admin.ModelAdmin):
-    # list_display = ("image", "project")
+    list_display = ("image", "project")
     search_fields = ("project",)
     list_filter = ("project",)
 
