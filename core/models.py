@@ -42,6 +42,11 @@ class Photo(models.Model):
 
     def __str__(self):
         return f"Image for {self.project.title}"
+    @property
+    def image_url(self):
+        if self.image:
+            return self.image.url
+        return None
 
 
 class Emails(models.Model):

@@ -1,5 +1,7 @@
 from pathlib import Path
-
+import cloudinary_storage
+import cloudinary.uploader
+import cloudinary.api
 import os
 from decouple import config
 import sys
@@ -106,7 +108,6 @@ if "test" in sys.argv:
         "NAME": ":memory:",
     }
 
-
 # Password validation
 # https://docs.djangoproject.com/en/4.2/ref/settings/#auth-password-validators
 
@@ -143,6 +144,8 @@ USE_TZ = True
 
 STATIC_URL = "/static/"
 STATIC_ROOT = os.path.join(BASE_DIR, "static")
+MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
+MEDIA_URL = "/media"
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/4.2/ref/settings/#default-auto-field
