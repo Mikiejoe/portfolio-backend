@@ -1,11 +1,16 @@
-from rest_framework.serializers import ModelSerializer
+from rest_framework.serializers import ModelSerializer, SerializerMethodField
 from core.models import Project, Photo, Emails
 
 
 class PhotoSerializer(ModelSerializer):
+    image = SerializerMethodField()
+
     class Meta:
         model = Photo
-        fields = ["image", "uploaded_at"]
+        fields = ["image"]
+
+    def get_image(self, obj):
+        return obj.image.url if hasattr(obj.image, 'url') else None
 
 
 class ProjectSerializer(ModelSerializer):

@@ -148,6 +148,7 @@ cov/
 .mypy_cache/
 .dmypy.json
 dmypy.json
+portfolio
 
 # Pyre type checker
 .pyre/

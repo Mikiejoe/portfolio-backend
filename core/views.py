@@ -4,8 +4,8 @@ from django.core.mail import send_mail
 from rest_framework.decorators import api_view
 from rest_framework.response import Response
 from rest_framework import status, viewsets
-from .models import Project
-from .serializers import ProjectSerializer, EmailsSerializer
+from .models import Project, Photo
+from .serializers import ProjectSerializer, EmailsSerializer, PhotoSerializer
 from django.template.loader import render_to_string
 from django.core.mail import EmailMultiAlternatives
 
@@ -19,6 +19,11 @@ class ProjectViewSet(viewsets.ModelViewSet):
         obj = get_object_or_404(queryset, slug=pk)
         self.check_object_permissions(self.request, obj)
         return Response(ProjectSerializer(obj).data)
+
+
+class PhotoViewset(viewsets.ModelViewSet):
+    serializer_class = PhotoSerializer
+    queryset = Photo.objects.all()
 
 
 @api_view(["POST"])

@@ -1,5 +1,6 @@
 from django.db import models
 from django.utils.text import slugify
+from cloudinary.models import CloudinaryField
 
 
 class Project(models.Model):
@@ -36,7 +37,7 @@ class Photo(models.Model):
     project = models.ForeignKey(
         Project, related_name="images", on_delete=models.CASCADE
     )
-    image = models.ImageField(upload_to="portfolio/project-images/")
+    image = CloudinaryField("portfolio/project-images/")
     uploaded_at = models.DateTimeField(auto_now_add=True, blank=True, null=True)
 
     def __str__(self):
