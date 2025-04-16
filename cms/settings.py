@@ -64,6 +64,7 @@ CORS_ALLOWED_ORIGINS = [
     "http://localhost:5173",
     "https://mikiejoe.tech",
     "https://www.mikiejoe.tech",
+    "mikiejoe.vercel.app"
 ]
 
 TEMPLATES = [
